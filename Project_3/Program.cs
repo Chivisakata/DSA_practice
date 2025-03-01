@@ -38,6 +38,48 @@ public class LinkedList
 
     }
 
+    public void pushFront(int data)
+        {
+            Node newNode = new Node(data);
+            if(head == null)
+                head = newNode;
+            else{
+                newNode.next = head.next;
+                head = newNode;
+            }
+        }
+    public void insert(int data, int pos)
+        {
+            Node newNode = new Node(data);
+            
+            if(head == null)
+                head=newNode;
+            else
+            {
+                Node tmp = head;
+                int count=0;                //Điếm vị trí đã duyệt
+                
+                if(pos == 0)                //Sử dụng Pushfront nếu nó ở vị trí là 0;
+                {
+                    pushFront(data);
+                } else {
+                    while(tmp.next != null)
+                    {   
+                        if(count == pos-1)              //Nếu đang duyệt đến phần tử trước vị trí muốn chèn
+                        {
+                            newNode.next = tmp.next;
+                            tmp.next=newNode;
+                            count++;
+                        } else {                        //Nếu không phải vị trí đó thì tiếp tục duyệt
+                            tmp=tmp.next;
+                            count++;
+                        }
+                    }   
+                }
+                
+            }    
+        }
+
     public void Show()//hàm duyệt qua từng phần tử của linkedlist
     {
         //*tương tự như trên
@@ -58,6 +100,7 @@ public class Program
         for (int i = 0; i < 10; i++)
         {
             mylist1.PushBack(i);//gọi hàm pushback và gán giá trị cho mỗi lần gọi
+            mylist1.insert(20,3);
         }
         mylist1.Show();
     }
