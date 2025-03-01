@@ -44,7 +44,7 @@ public class LinkedList
             if(head == null)
                 head = newNode;
             else{
-                newNode.next = head.next;
+                newNode.next = head;
                 head = newNode;
             }
         }
@@ -99,9 +99,10 @@ public class Program
         LinkedList mylist1 = new LinkedList();//khởi tạo đối tượng mylist1 có kiểu LinkedList
         for (int i = 0; i < 10; i++)
         {
-            mylist1.PushBack(i);//gọi hàm pushback và gán giá trị cho mỗi lần gọi
-            mylist1.insert(20,3);
+            mylist1.pushFront(i);//gọi hàm pushback và gán giá trị cho mỗi lần gọi
         }
+        mylist1.insert(99, 2);
+
         mylist1.Show();
     }
 }
